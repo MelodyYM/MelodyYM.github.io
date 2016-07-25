@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS添加测试设备与调试 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.证书：安装到电脑上的cer文件，只有安装了证书的电脑，才可以进行真机调试
+2.App ID：就是应用程序的Bundle ID，每个应用程序都有一个唯一的Bundle ID，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:*号
+3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试
+4.描述文件：里面包含：证书，Ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS添加测试设备与调试">
+<meta property="og:url" content="http://yoursite.com/2015/05/18/iOS添加测试设备与调试/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.证书：安装到电脑上的cer文件，只有安装了证书的电脑，才可以进行真机调试
+2.App ID：就是应用程序的Bundle ID，每个应用程序都有一个唯一的Bundle ID，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:*号
+3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试
+4.描述文件：里面包含：证书，Ap">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvdzn1oh9j20ic08jjrw.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvbbcl3hdj21ba0yewkl.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvbfai0z2j21j80vkjye.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvbhe4mqmj21hm12mthp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbi3peeij214m0pkq6y.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbj2vozhj21200g0q5a.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvbk8t4i3j215410kdn3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvbmn71wvj20py0fwdjm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbnhpmmzj20y80o8whn.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvbp13bymj20nk09gmy0.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvbpz7mttj21500t4tdl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbrqc35hj214k0wsgqa.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvc205aqij21hy0k2tc6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvc3c19y9j214u0todjq.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvc5elesxj214w0tmq93.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvc8iw99cj213812wjw4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvc9w26pmj20vy0nadhl.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvcoz1pbgj20ee0hs3zg.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvcq5u045j215403k0t2.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvcrvzzajj20iy0g0wgc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvcsm92wvj21900xcwop.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvcu1vlbaj212e0sqq69.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvcutfvnhj21520w60wz.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvd190zonj20de0egwf5.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvd2uyq15j214y044mxn.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvd3g8o9jj21520y6n1m.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvd4l46qzj214u0vqwiz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvdmvuijpj212m0t241q.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvd6hohisj213e11qtd2.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvd900f3aj20z20s477b.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvda0i745j20zk0ygwi3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvdfao8hsj20fs07m408.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvdhoskspj214k0nwq5n.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvdjoue3bj21bk0k8q6q.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvdkuasu5j20ku02umxl.jpg">
+<meta property="og:updated_time" content="2015-12-15T07:50:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS添加测试设备与调试">
+<meta name="twitter:description" content="1.证书：安装到电脑上的cer文件，只有安装了证书的电脑，才可以进行真机调试
+2.App ID：就是应用程序的Bundle ID，每个应用程序都有一个唯一的Bundle ID，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:*号
+3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试
+4.描述文件：里面包含：证书，Ap">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvdzn1oh9j20ic08jjrw.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS添加测试设备与调试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/18/iOS添加测试设备与调试/" class="article-date">
+  <time datetime="2015-05-18T13:14:28.000Z" itemprop="datePublished">2015-05-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS添加测试设备与调试
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvdzn1oh9j20ic08jjrw.jpg" alt=""></p>
+<blockquote>
+<p>1.证书：安装到电脑上的<code>cer</code>文件，只有安装了证书的电脑，才可以进行真机调试</p>
+<p>2.App ID：就是应用程序的<code>Bundle ID</code>，每个应用程序都有一个唯一的<code>Bundle ID</code>，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:<code>*</code>号</p>
+<p>3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试</p>
+<p>4.描述文件：里面包含：<code>证书</code>，<code>App ID</code>，<code>测试设备UDID</code>。就是用来描述，哪台电脑可以进行测试，哪台真机可以测试，哪个应用程序可以测试</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="1-添加证书"><a href="#1-添加证书" class="headerlink" title="1.添加证书"></a>1.添加证书</h3><p>1.首先，我们需要先登录开发者中心： <a href="https://developer.apple.com" target="_blank" rel="external">开发者中心</a>，注意，需要使用付费过的账号<br>2.点击开发者中心（Member Center）来到如下页面，然后点击选中区域，准备进行证书的生成<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvbbcl3hdj21ba0yewkl.jpg" alt=""><br>3.我们可以看到开发的三种方向，我们自然会选择<code>iOS开发方向</code>的内容，苹果已经告诉了我们操作的流程，分别是：<code>证书</code>、<code>应用程序标识</code>、<code>测试设备</code>、<code>描述文件</code>，我们按照步骤操作就好了，点击<code>Certificates</code><br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvbfai0z2j21j80vkjye.jpg" alt=""></p>
+<p>4.选择<code>Certificates</code>下的<code>Pending</code>，在右侧点击<code>Certificate Signing Request</code>，或者<code>右上角的添加按钮</code>，都可以进行证书的添加<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvbhe4mqmj21hm12mthp.jpg" alt=""><br>5.选择真机调试的证书，下面的选项是添加远程推送的证书的，后面的文章中再介绍<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbi3peeij214m0pkq6y.jpg" alt=""><br>6.直接点击本页下面的<code>Continue</code>按钮，继续操作<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbj2vozhj21200g0q5a.jpg" alt=""><br>7.这个页面Balabalabala了很多，直接<code>Continue</code>按钮继续，忽略它<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvbk8t4i3j215410kdn3.jpg" alt=""><br>8.这里需要我们在电脑上创建一个证书，然后上传。在Mac电脑商找到<code>钥匙</code>串应用程序，在菜单里找到<code>证书助理</code>，然后选择<code>从证书颁发机构请求证书</code>，如下：<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvbmn71wvj20py0fwdjm.jpg" alt=""><br>9.重点就是选择存储到本地磁盘，其他内容随意，你喜欢就好<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbnhpmmzj20y80o8whn.jpg" alt=""><br>10.之后会生成一个后缀是：<code>.certSigningRequest</code>的文件，保存到桌面<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvbp13bymj20nk09gmy0.jpg" alt=""><br>11.刚刚在电脑上创建的证书，需要上传，回到刚刚的网页，选择<code>Choose File...</code>按钮，上传刚刚生成的证书<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvbpz7mttj21500t4tdl.jpg" alt=""><br>12.点击<code>Generate</code>按钮，生成我们需要的证书<br>13.生成之后，点击<code>Download</code>按钮，下载证书到本地，准备后面使用!<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbrqc35hj214k0wsgqa.jpg" alt=""></p>
+<blockquote>
+<p>注意：一个账号只能生成一个真机调试证书，多个人只需要使用这一个即可。</p>
+<p>证书已经生成完毕，下面要做的就是注册App ID。</p>
+</blockquote>
+<h3 id="2-注册APP-ID"><a href="#2-注册APP-ID" class="headerlink" title="2.注册APP ID"></a>2.注册APP ID</h3><p>1.点击左侧<code>Identifiers</code>下面的<code>App IDs</code>，再点击右上角的<code>加号按钮</code>，进行我们App ID的添加<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvc205aqij21hy0k2tc6.jpg" alt=""></p>
+<p>2.在Name输入框中，输入App ID的描述<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvc3c19y9j214u0todjq.jpg" alt=""><br>3.下面是让我们填写App ID的前缀，我们选择下面的模糊填写方式，就是可以使用<code>*</code>号来代替所有。上面需要输入精确的App ID。如果选择<code>Explicit App ID</code>，可以进行更多功能的测试，例如：Game Center、App Group、Push Notifications等等。但是，该App ID只能针对一个应用程序使用。我们现在添加通用的，所以选择下面的<code>Wildcard App ID</code>，输入类似<code>com.公司名.*</code>的标示符，也可以使用一个<code>*</code>号，代表所有：<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvc5elesxj214w0tmq93.jpg" alt=""><br>4.上面填好内容之后，滑到下面，选择<code>Continue</code>继续<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvc8iw99cj213812wjw4.jpg" alt=""><br>5.下面是让我们确认选中的内容，保证自己选择的内容无误后，点击<code>Submit</code>按钮，进行提交<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvc9w26pmj20vy0nadhl.jpg" alt=""></p>
+<blockquote>
+<p>注意：我们刚刚创建的是通用证书，不可进行远程推送的测试。如果需要测试更多功能，需要添加<code>Explict App ID</code>类型的App ID。</p>
+<p>App ID添加成功，下面，我们需要添加测试设备。</p>
+</blockquote>
+<h3 id="3-添加测试设备"><a href="#3-添加测试设备" class="headerlink" title="3.添加测试设备"></a>3.添加测试设备</h3><p>1.选择左侧<code>Devices</code>下的<code>All</code>，然后点击右上角的<code>添加</code>按钮，进行真机设备的添加<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvcoz1pbgj20ee0hs3zg.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvcq5u045j215403k0t2.jpg" alt=""><br>2.这里需要我们输入测试设备的名称(内容任意)和设备的UDID，那么，到哪里查看设备的UDID呢？<br>使用数据线，将设备与电脑连接，打开<code>XCode</code>，点击菜单栏中的<code>Window</code>选项，选择<code>Devices</code>选项：<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvcrvzzajj20iy0g0wgc.jpg" alt=""><br>3.进到如下页面，选中你的设备，在右侧可以看到<code>Identifier</code>，右击拷贝其内容<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvcsm92wvj21900xcwop.jpg" alt=""></p>
+<ol>
+<li>然后将获取到的UDID粘贴到输入框中，直接点击<code>Continue</code>按钮，继续<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvcu1vlbaj212e0sqq69.jpg" alt=""></li>
+<li>确认内容无误，然后点击<code>Register</code>按钮，确认注册<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvcutfvnhj21520w60wz.jpg" alt=""><br>6.至此，我们添加了测试设备，马上就可以测试啦，继续..<blockquote>
+<p>注意：每个账号可以添加100个测试设备，即便使设备不可以，也是占用名额的，需要过完一年之后，才会自动清空。</p>
+<p>下面，生成描述文件，马上就快哦了..</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="4-生成描述文件"><a href="#4-生成描述文件" class="headerlink" title="4.生成描述文件"></a>4.生成描述文件</h3><p>1.选择<code>Provisioning Profiles</code>下面的<code>All</code>：<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvd190zonj20de0egwf5.jpg" alt=""></p>
+<p>2.然后点击右上角的<code>添加</code>按钮，进行描述文件的生成<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvd2uyq15j214y044mxn.jpg" alt=""></p>
+<p>3.我们要做的是测试，所以选择<code>iOS App Development</code>，之后<code>Continue</code>按钮继续<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvd3g8o9jj21520y6n1m.jpg" alt=""><br>4.描述文件中，需要App ID，这里选择我们刚刚生成的App ID<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvd4l46qzj214u0vqwiz.jpg" alt=""><br>5.描述文件中，需要证书，在这里选择我们刚刚创建的证书<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvdmvuijpj212m0t241q.jpg" alt=""><br>6.描述文件中，需要测试设备，这里直接选择<code>Select All</code>，可以让所有的测试设备都可以测试，然后点击<code>Continue</code>按钮继续<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvd6hohisj213e11qtd2.jpg" alt=""><br>7.添加了需要的信息后，输入描述文件的名称，然后点击<code>Generate</code>按钮，生成描述文件<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvd900f3aj20z20s477b.jpg" alt=""><br>8.生成描述文件之后，点击Download按钮，下载到本地，准备使用<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvda0i745j20zk0ygwi3.jpg" alt=""></p>
+<blockquote>
+<p>注意：描述文件生成需要:<code>1.App ID</code> <code>2.证书</code> <code>3.添加到此描述文件中的设备</code>，这三样，缺一不可</p>
+<p>OK，证书和描述文件都生成了，只差一步，马上大功告成。</p>
+</blockquote>
+<h3 id="5-导入证书和描述文件"><a href="#5-导入证书和描述文件" class="headerlink" title="5.导入证书和描述文件"></a>5.导入证书和描述文件</h3><p>1.将测试设备使用数据线连接电脑，双击证书和描述文件，分别安装到电脑和测试设备上，之后就可以测试了<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvdfao8hsj20fs07m408.jpg" alt=""><br>2.创建空的工程，注意：这里输入的内容，需要与注册App ID输入的一直，如果注册的时候使用的是一个<code>*</code>号，则这里任意<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvdhoskspj214k0nwq5n.jpg" alt=""><br>3.注意点：这里选的版本需要小于等于你测试机的版本，否则测试机无法使用<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvdjoue3bj21bk0k8q6q.jpg" alt=""><br>4.最后一步，将测试设备选成真机，然后<code>cmd + R</code>运行就哦啦<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvdkuasu5j20ku02umxl.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/05/18/iOS添加测试设备与调试/" data-id="cir25tgeo0045tkfys4f5yzg0" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/真机/">真机</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/27/Swiftype添加站内搜索/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Swiftype添加站内搜索
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/11/CocoaPosd详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">CocoaPosd详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发相关工具/">iOS开发相关工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/兴趣篇/">兴趣篇</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术篇/">技术篇</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPosd使用详解/">CocoaPosd使用详解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo博客-搭建、使用/">Hexo博客(搭建、使用)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown语言/">Markdown语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSArray/">NSArray</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSMutableArray/">NSMutableArray</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object-C/">Object-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIActivityIndicatorView（小菊花）/">UIActivityIndicatorView（小菊花）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIAlertView/">UIAlertView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIDatePiker/">UIDatePiker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIPageControl/">UIPageControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIPikcerView/">UIPikcerView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIProgressView/">UIProgressView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIScrollView/">UIScrollView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISearchBar/">UISearchBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISegmentedControl/">UISegmentedControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISlider/">UISlider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIStepper/">UIStepper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISwitch/">UISwitch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITextFiled/">UITextFiled</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITextView/">UITextView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIViewController/">UIViewController</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI控件/">UI控件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim-编辑器/">Vim 编辑器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-站内搜索/">hexo 站内搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/占位符/">占位符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/可视化编程/">可视化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手势/">手势</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/真机/">真机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/CocoaPosd使用详解/" style="font-size: 10px;">CocoaPosd使用详解</a> <a href="/tags/Hexo博客-搭建、使用/" style="font-size: 13.33px;">Hexo博客(搭建、使用)</a> <a href="/tags/Markdown语言/" style="font-size: 10px;">Markdown语言</a> <a href="/tags/NSArray/" style="font-size: 10px;">NSArray</a> <a href="/tags/NSMutableArray/" style="font-size: 10px;">NSMutableArray</a> <a href="/tags/Object-C/" style="font-size: 13.33px;">Object-C</a> <a href="/tags/UIActivityIndicatorView（小菊花）/" style="font-size: 10px;">UIActivityIndicatorView（小菊花）</a> <a href="/tags/UIAlertView/" style="font-size: 10px;">UIAlertView</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UIDatePiker/" style="font-size: 10px;">UIDatePiker</a> <a href="/tags/UILabel/" style="font-size: 10px;">UILabel</a> <a href="/tags/UIPageControl/" style="font-size: 13.33px;">UIPageControl</a> <a href="/tags/UIPikcerView/" style="font-size: 10px;">UIPikcerView</a> <a href="/tags/UIProgressView/" style="font-size: 10px;">UIProgressView</a> <a href="/tags/UIScrollView/" style="font-size: 10px;">UIScrollView</a> <a href="/tags/UISearchBar/" style="font-size: 10px;">UISearchBar</a> <a href="/tags/UISegmentedControl/" style="font-size: 10px;">UISegmentedControl</a> <a href="/tags/UISlider/" style="font-size: 10px;">UISlider</a> <a href="/tags/UIStepper/" style="font-size: 10px;">UIStepper</a> <a href="/tags/UISwitch/" style="font-size: 10px;">UISwitch</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UITextFiled/" style="font-size: 10px;">UITextFiled</a> <a href="/tags/UITextView/" style="font-size: 10px;">UITextView</a> <a href="/tags/UIViewController/" style="font-size: 10px;">UIViewController</a> <a href="/tags/UI控件/" style="font-size: 16.67px;">UI控件</a> <a href="/tags/Vim-编辑器/" style="font-size: 10px;">Vim 编辑器</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo-站内搜索/" style="font-size: 10px;">hexo 站内搜索</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/占位符/" style="font-size: 10px;">占位符</a> <a href="/tags/可视化编程/" style="font-size: 13.33px;">可视化编程</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/手势/" style="font-size: 10px;">手势</a> <a href="/tags/真机/" style="font-size: 10px;">真机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/20/使用WKWebView替换UIWebView/">使用WKWebView替换UIWebView</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/15/UITableViewCell的自定义以及重用/">UITableViewCell的自定义以及重用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/13/UITableView的编辑和移动/">UITableView的编辑和移动</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/UITableView/">UITableView</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

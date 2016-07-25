@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UITableView的详细使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：
+#import
+@interface RootViewController : UIVie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UITableView的详细使用">
+<meta property="og:url" content="http://yoursite.com/2014/10/09/UITableView的详细使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：
+#import
+@interface RootViewController : UIVie">
+<meta property="og:updated_time" content="2015-12-15T07:51:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UITableView的详细使用">
+<meta name="twitter:description" content="// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：
+#import
+@interface RootViewController : UIVie">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-UITableView的详细使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/09/UITableView的详细使用/" class="article-date">
+  <time datetime="2014-10-09T10:30:35.000Z" itemprop="datePublished">2014-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UITableView的详细使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：
+#import
+@interface RootViewController : UIViewController &lt;UITableViewDelegate, UITableViewDataSource&gt;
+@property (nonatomic, retain) UITableView *myTableView;
+@property (nonatomic, retain) UITableViewCell *tableViewCell;
+@property (nonatomic, retain) NSMutableArray *tableViewDataSource; // TableView中显示的数据
+@property (nonatomic, retain) NSMutableArray *tableViewDateSource2; // 第二个分组使用的数据
+@end
+</code></pre><a id="more"></a>
+<pre><code>// 主要的方法有如下，
+
+
+#pragma mark 设置TableView上面显示的内容 使用此方法时候需要注意，一定要使用重用机制，否则会出现文字或图像重叠的现象
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+
+#pragma mark - 重写----设置有多少个分组
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
+
+
+#pragma mark - 重写----设置每个分组上面有多少单元格
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+
+#pragma mark - 重写---修改行高
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+return 44; // 返回多少即设置行高为多少
+</code></pre><p>}</p>
+<pre><code>#pragma mark - 重写----设置单元格分组的标题和标注的高度
+#pragma mark 设置分组上面的标题的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
+#pragma mark 设置分组下面的标注的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
+
+
+
+#pragma mark - 重写----设置单元格分组的标题
+// 可以设置为UIView类型
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
+// 也可以直接设置为字符串
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
+
+
+#pragma mark - 重写----设置分组下面显示的视图
+// 设置为UIView类型
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;
+// 也可以直接设置为字符串类型
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
+
+
+
+#pragma mark - 重写----设置当我们点击Edit按钮，让TableView进入编辑状态时候左面显示出得按钮是加号、减号、还是空白
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
+// 主要由如下三种情况
+
+// UITableViewCellEditingStyleNone // 显示为空白
+// UITableViewCellEditingStyleDelete // 显示为减号
+// UITableViewCellEditingStyleInsert // 显示为加号
+#pragma mark - 重写----当TableView将要显示的时候进行设置 可以设置TableView隔行换背景色
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+
+
+
+#pragma mark - 重写----设置可以编辑 返回值为YES  
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+#pragma mark - 重写----设置可以排序移动
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+return YES;
+}
+#pragma mark - 重写----排序移动时的方法
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
+
+
+
+#pragma mark - 重写----判断是那个编辑的状态，然后依据状态去编辑
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+
+
+
+#pragma mark - 重写---点击了每个单元格（Cell）触发的事件，如果可以移动的话就必须使用标题来判断
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+
+
+
+
+
+// 以上为经常使用的几个方法，下面贴上添加内容，移动，添加，删除的主要代码：
+// 添加内容的主要代码：
+
+#pragma mark 设置TableView上面显示的内容
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+// 首先先声明一个标识符
+NSString *cell_id = @&quot;cell_id&quot;;
+// 从TableView的重用队列中获取可重用的单元格
+UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+// 刚开始因为重用队列中没有可重用的单元格，所有cell不存在，需要主动实例化指定样式
+if (!cell) {
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id] autorelease];
+    // 设置每一个单元格右面显示的符号
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+}
+// 实例化可变数据，作为数据源
+NSUInteger row = [indexPath row];
+// 设置不同分组的，如果是普通列表形式，则无需if判断
+if (indexPath.section == 0) {
+    // 设置单元格上面的内容
+    cell.textLabel.text = [self.tableViewDataSource objectAtIndex:row];
+} else if (indexPath.section == 1) {
+    // 设置单元格上面的内容
+    cell.textLabel.text = [self.tableViewDateSource2 objectAtIndex:row];
+}
+return cell;
+}
+
+// 移动排序的主要代码：
+
+#pragma mark - 重写----设置可以编辑 返回值为YES  
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+#pragma mark - 重写----设置可以排序移动
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+return YES;
+</code></pre><p>}</p>
+<pre><code>#pragma mark - 重写----排序移动时的方法
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+// 获取需要移动的行
+NSInteger fromRow = sourceIndexPath.row;
+// 获取移动某处的位置
+NSInteger toRow = destinationIndexPath.row;
+// 从数组合中读取需要移动行的数据
+id object = [_tableViewDataSource objectAtIndex:fromRow];
+// 把数组中移除需要移动的行的数据
+[_tableViewDataSource removeObjectAtIndex:fromRow];
+// 把需要移动的数据插入到目标位置
+[_tableViewDataSource insertObject:object atIndex:toRow];   
+}
+
+
+// 添加新的单元格（cell）的主要代码
+// 首先需要在头文件中声明一个cellCount和UITableViewCell以供使用
+
+#import
+@interface InsertTableViewController : UITableViewController
+@property (nonatomic, assign) NSUInteger cellCount;
+@property (nonatomic, retain) UITableViewCell *nullTableViewCell;
+@property (nonatomic, retain) NSMutableArray *tableViewDataSource;
+@end
+// 实现文件中进行主要操作
+
+#pragma mark - 重写----设置编辑状态下显示的按钮是加号、减号、空
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+return UITableViewCellEditingStyleInsert;
+}
+
+
+#pragma mark - 重写----依据编辑状态进行相应的操作
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+if (editingStyle == UITableViewCellEditingStyleInsert) { // 如果为添加按钮状态
+    // 每增加一次，数量就会加1
+    _cellCount ++;
+    // 获取增加的位置
+    NSUInteger row = indexPath.row;
+    // 初始化一个数组，装载indexPath
+    NSArray *insertIndexPath = [NSArray arrayWithObjects:indexPath  , nil];
+    // 设置新添加的内容的标题
+    NSString *message = [NSString stringWithFormat:@&quot;new TableViewCell %d&quot;, _cellCount];
+    // 添加单元格，设置标题
+    [self.tableViewDataSource insertObject:message atIndex:row];
+    [tableView insertRowsAtIndexPaths:insertIndexPath withRowAnimation:UITableViewRowAnimationLeft];
+}   
+}
+
+
+// 删除单元格的主要代码：
+
+#pragma mark - 重写----设置编辑状态下显示的按钮的样式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+#pragma mark - 重写----判断是哪个编辑状态，进行相应的操作
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+if (editingStyle == UITableViewCellEditingStyleDelete) { // 删除单元格
+    // 通过索引值，删除数组中的数据
+    [_tableViewDataSource removeObjectAtIndex:indexPath.row];
+    // 删除单元格中的某一行，使用动画效果实现
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+}   
+}
+
+
+// 还有就是UINavigationController右上角的Edit按钮，如果你写的类继承自UITableViewController类，则直接在viewDidLoad方法中写上 self.navigationItem.rightBarButtonItem = self.editButtonItem; 就可以了。如果你写的类不是继承UITableViewController，则需要你手动写一个UIBarButtonItem了，下面为主要代码：
+
+// 在NavigationController上面显示出编辑按钮
+UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@&quot;编辑&quot; style:UIBarButtonItemStyleBordered  target:self action:@selector(toggleEdit:)];
+self.navigationItem.rightBarButtonItem = editButton;
+
+
+#pragma mark - 设置NavigationBar右上角的按钮的不同状态显示的不同的文字和是否处于编辑的状态
+- (void)toggleEdit:(UIBarButtonItem *)sender
+{
+if (self.myTableView.isEditing == YES) {
+    [self.myTableView setEditing:NO animated:YES];
+    [sender setTitle:@&quot;编辑&quot;];
+} else {
+    [self.myTableView setEditing:YES animated:YES];
+    [sender setTitle:@&quot;完成&quot;];
+}
+}
+
+
+
+// 我们在初始化UITableView的时候，一定要把delegate和dataSource代理设置为本身，否则是不起作用的
+
+_myTableView.dataSource = self; // 设置数据代理为本身
+_myTableView.delegate = self; // 设置样式代理为本身
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/09/UITableView的详细使用/" data-id="cir25tgci001jtkfyswyv36wj" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/10/UIViewController生命周期/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          UIViewController生命周期
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/08/UIPikcerView的联动选择/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">UIPikcerView的联动选择</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发相关工具/">iOS开发相关工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/兴趣篇/">兴趣篇</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术篇/">技术篇</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPosd使用详解/">CocoaPosd使用详解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo博客-搭建、使用/">Hexo博客(搭建、使用)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown语言/">Markdown语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSArray/">NSArray</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSMutableArray/">NSMutableArray</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object-C/">Object-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIActivityIndicatorView（小菊花）/">UIActivityIndicatorView（小菊花）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIAlertView/">UIAlertView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIDatePiker/">UIDatePiker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIPageControl/">UIPageControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIPikcerView/">UIPikcerView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIProgressView/">UIProgressView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIScrollView/">UIScrollView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISearchBar/">UISearchBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISegmentedControl/">UISegmentedControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISlider/">UISlider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIStepper/">UIStepper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UISwitch/">UISwitch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITextFiled/">UITextFiled</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITextView/">UITextView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIViewController/">UIViewController</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI控件/">UI控件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim-编辑器/">Vim 编辑器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-站内搜索/">hexo 站内搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/占位符/">占位符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/可视化编程/">可视化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手势/">手势</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/真机/">真机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/CocoaPosd使用详解/" style="font-size: 10px;">CocoaPosd使用详解</a> <a href="/tags/Hexo博客-搭建、使用/" style="font-size: 13.33px;">Hexo博客(搭建、使用)</a> <a href="/tags/Markdown语言/" style="font-size: 10px;">Markdown语言</a> <a href="/tags/NSArray/" style="font-size: 10px;">NSArray</a> <a href="/tags/NSMutableArray/" style="font-size: 10px;">NSMutableArray</a> <a href="/tags/Object-C/" style="font-size: 13.33px;">Object-C</a> <a href="/tags/UIActivityIndicatorView（小菊花）/" style="font-size: 10px;">UIActivityIndicatorView（小菊花）</a> <a href="/tags/UIAlertView/" style="font-size: 10px;">UIAlertView</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UIDatePiker/" style="font-size: 10px;">UIDatePiker</a> <a href="/tags/UILabel/" style="font-size: 10px;">UILabel</a> <a href="/tags/UIPageControl/" style="font-size: 13.33px;">UIPageControl</a> <a href="/tags/UIPikcerView/" style="font-size: 10px;">UIPikcerView</a> <a href="/tags/UIProgressView/" style="font-size: 10px;">UIProgressView</a> <a href="/tags/UIScrollView/" style="font-size: 10px;">UIScrollView</a> <a href="/tags/UISearchBar/" style="font-size: 10px;">UISearchBar</a> <a href="/tags/UISegmentedControl/" style="font-size: 10px;">UISegmentedControl</a> <a href="/tags/UISlider/" style="font-size: 10px;">UISlider</a> <a href="/tags/UIStepper/" style="font-size: 10px;">UIStepper</a> <a href="/tags/UISwitch/" style="font-size: 10px;">UISwitch</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UITextFiled/" style="font-size: 10px;">UITextFiled</a> <a href="/tags/UITextView/" style="font-size: 10px;">UITextView</a> <a href="/tags/UIViewController/" style="font-size: 10px;">UIViewController</a> <a href="/tags/UI控件/" style="font-size: 16.67px;">UI控件</a> <a href="/tags/Vim-编辑器/" style="font-size: 10px;">Vim 编辑器</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo-站内搜索/" style="font-size: 10px;">hexo 站内搜索</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/占位符/" style="font-size: 10px;">占位符</a> <a href="/tags/可视化编程/" style="font-size: 13.33px;">可视化编程</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/手势/" style="font-size: 10px;">手势</a> <a href="/tags/真机/" style="font-size: 10px;">真机</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/20/使用WKWebView替换UIWebView/">使用WKWebView替换UIWebView</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/15/UITableViewCell的自定义以及重用/">UITableViewCell的自定义以及重用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/13/UITableView的编辑和移动/">UITableView的编辑和移动</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/UITableView/">UITableView</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

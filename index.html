@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  
+
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
@@ -11,17 +11,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-  
+
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
+
+
     <link rel="icon" href="/favicon.png">
-  
-  
+
+
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
+
   <link rel="stylesheet" href="/css/style.css">
-  
+
 
 </head>
 
@@ -35,21 +35,21 @@
       <h1 id="logo-wrap">
         <a href="/" id="logo">Hexo</a>
       </h1>
-      
+
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
-        
+
           <a class="main-nav-link" href="/">Home</a>
-        
+
           <a class="main-nav-link" href="/archives">Archives</a>
-        
+
       </nav>
       <nav id="sub-nav">
-        
+
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
-        
+
         <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
@@ -60,29 +60,29 @@
 </header>
       <div class="outer">
         <section id="main">
-  
+
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/25/hello-world/" class="article-date">
   <time datetime="2016-07-25T12:32:51.000Z" itemprop="datePublished">2016-07-25</time>
 </a>
-    
+
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2016/07/25/hello-world/">Hello World</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
@@ -93,327 +93,327 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-      
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2016/07/25/hello-world/" data-id="cir25tgco001ltkfyevg793ve" class="article-share-link">Partager</a>
-      
-      
+
+
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-使用WKWebView替换UIWebView" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/11/20/使用WKWebView替换UIWebView/" class="article-date">
   <time datetime="2015-11-20T09:11:31.000Z" itemprop="datePublished">2015-11-20</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/iOS/">iOS</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/11/20/使用WKWebView替换UIWebView/">使用WKWebView替换UIWebView</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <h2 id="WKWebView替换UIWebView"><a href="#WKWebView替换UIWebView" class="headerlink" title="WKWebView替换UIWebView"></a>WKWebView替换UIWebView</h2><p> 开发App的过程中，常常会遇到在App内部加载网页，通常用UIWebView加载。这个自iOS2开始使用的网页加载器一直是开发的心病：加载速度慢，占用内存多，优化困难。如果加载网页多，还可能因为过量占用内存而给系统kill掉。各种优化的方法效果也不那么明显iOS8以后，苹果推出了新框架Wekkit，提供了替换UIWebView的组件WKWebView。各种UIWebView的问题没有了，速度更快了，占用内存少了，一句话，WKWebView是App内部加载网页的最佳选择！</p>
-        
+
           <p class="article-more-link">
             <a href="/2015/11/20/使用WKWebView替换UIWebView/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/11/20/使用WKWebView替换UIWebView/" data-id="cir25tgf0004ftkfyrwik1za6" class="article-share-link">Partager</a>
-      
-      
+
+
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-UITableViewCell的自定义以及重用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/15/UITableViewCell的自定义以及重用/" class="article-date">
   <time datetime="2015-06-15T12:52:44.000Z" itemprop="datePublished">2015-06-15</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/06/15/UITableViewCell的自定义以及重用/">UITableViewCell的自定义以及重用</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <p>在UITableView中，我们通常来展示各色各样的信息，这时，系统自带的cell形式就无法满足我们的需求了。此时，我们就需要用到自定义cell。</p>
-        
+
           <p class="article-more-link">
             <a href="/2015/06/15/UITableViewCell的自定义以及重用/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/06/15/UITableViewCell的自定义以及重用/" data-id="cir25tgcc001gtkfy3fi4atmy" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI控件/">UI控件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-UITableView的编辑和移动" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/13/UITableView的编辑和移动/" class="article-date">
   <time datetime="2015-06-13T05:42:36.000Z" itemprop="datePublished">2015-06-13</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/06/13/UITableView的编辑和移动/">UITableView的编辑和移动</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <p>上一篇记录了UITableView基本的用法，包括创建、设置代理以及代理方法的实现。这一篇来记录一下UITableView的编辑和移动。<br>
-        
+
           <p class="article-more-link">
             <a href="/2015/06/13/UITableView的编辑和移动/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/06/13/UITableView的编辑和移动/" data-id="cir25tgct001rtkfyktvfbd8t" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI控件/">UI控件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-UITableView" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/11/UITableView/" class="article-date">
   <time datetime="2015-06-11T12:49:05.000Z" itemprop="datePublished">2015-06-11</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/06/11/UITableView/">UITableView</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <p>今天写一下UITableView控件以及一个使用率非常高的视图控制器UITableViewController</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>UITableView经常被用来展示一系列相似的信息，有点类似于平时所见的列表，它有两种形式，一种为UITableViewStylePlain，另一种为UITableViewStyleGrouped。其实二者没有多大差别，第二种只是在第一种的基础上按分组进行显示。我们平时常用第二种形式。</p>
-        
+
           <p class="article-more-link">
             <a href="/2015/06/11/UITableView/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/06/11/UITableView/" data-id="cir25tgbz0017tkfyc2sfx2ug" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI控件/">UI控件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-iOS开发常用控件总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/06/iOS开发常用控件总结/" class="article-date">
   <time datetime="2015-06-06T12:09:32.000Z" itemprop="datePublished">2015-06-06</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/06/06/iOS开发常用控件总结/">iOS开发常用控件总结</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <p>总结一下iOS开发中最常用的控件<br><img src="/post_image/zhishidian.jpg" alt=""></p>
-        
+
           <p class="article-more-link">
             <a href="/2015/06/06/iOS开发常用控件总结/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/06/06/iOS开发常用控件总结/" data-id="cir25tgd70022tkfy86gopt2f" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI控件/">UI控件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-Swiftype添加站内搜索" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/05/27/Swiftype添加站内搜索/" class="article-date">
   <time datetime="2015-05-27T13:59:23.000Z" itemprop="datePublished">2015-05-27</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/兴趣篇/">兴趣篇</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/05/27/Swiftype添加站内搜索/">Swiftype添加站内搜索</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <h2 id="利用swiftype为hexo添加站内搜索"><a href="#利用swiftype为hexo添加站内搜索" class="headerlink" title="利用swiftype为hexo添加站内搜索"></a>利用swiftype为hexo添加站内搜索</h2><p>有了博客，写了辣么多文章没有站内搜索功能怎么行！废话不说开始吧。</p>
 <h3 id="到swiftype网站注册账号"><a href="#到swiftype网站注册账号" class="headerlink" title="到swiftype网站注册账号"></a>到swiftype网站注册账号</h3><p>首先，要去swiftype的网站<a href="https://swiftype.com">https://swiftype.com</a>注册一个账号，然后根据指引建立好自己网站对应的索引。对了有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），30天到期后你可选择花钱继续用这个高级账户（土豪自便）</p>
-        
+
           <p class="article-more-link">
             <a href="/2015/05/27/Swiftype添加站内搜索/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/05/27/Swiftype添加站内搜索/" data-id="cir25tgai0007tkfy133bn88f" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo博客-搭建、使用/">Hexo博客(搭建、使用)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-站内搜索/">hexo 站内搜索</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-iOS添加测试设备与调试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/05/18/iOS添加测试设备与调试/" class="article-date">
   <time datetime="2015-05-18T13:14:28.000Z" itemprop="datePublished">2015-05-18</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/05/18/iOS添加测试设备与调试/">iOS添加测试设备与调试</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvdzn1oh9j20ic08jjrw.jpg" alt=""></p>
 <blockquote>
 <p>1.证书：安装到电脑上的<code>cer</code>文件，只有安装了证书的电脑，才可以进行真机调试</p>
@@ -421,134 +421,134 @@
 <p>3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试</p>
 <p>4.描述文件：里面包含：<code>证书</code>，<code>App ID</code>，<code>测试设备UDID</code>。就是用来描述，哪台电脑可以进行测试，哪台真机可以测试，哪个应用程序可以测试</p>
 </blockquote>
-        
+
           <p class="article-more-link">
             <a href="/2015/05/18/iOS添加测试设备与调试/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/05/18/iOS添加测试设备与调试/" data-id="cir25tgeo0045tkfys4f5yzg0" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/真机/">真机</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-CocoaPosd详解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/05/11/CocoaPosd详解/" class="article-date">
   <time datetime="2015-05-11T13:16:01.000Z" itemprop="datePublished">2015-05-11</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/iOS开发相关工具/">iOS开发相关工具</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/05/11/CocoaPosd详解/">CocoaPosd详解</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <p><img src="http://ww4.sinaimg.cn/large/9c2363adgw1es45z04v3dj20x40li0v3.jpg" alt=""></p>
 <h3 id="CocoaPosd是什么？"><a href="#CocoaPosd是什么？" class="headerlink" title="CocoaPosd是什么？"></a>CocoaPosd是什么？</h3><p>当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。</p>
 <p>大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。</p>
 <p>还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。</p>
 <p>以上问题超级的烦人。。。<br>
-        
+
           <p class="article-more-link">
             <a href="/2015/05/11/CocoaPosd详解/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/05/11/CocoaPosd详解/" data-id="cir25tg9p0000tkfymfr6ineq" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocoaPosd使用详解/">CocoaPosd使用详解</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
     <article id="post-可视化编程之Storyboard" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/05/03/可视化编程之Storyboard/" class="article-date">
   <time datetime="2015-05-03T12:38:09.000Z" itemprop="datePublished">2015-05-03</time>
 </a>
-    
+
   <div class="article-category">
     <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
   </div>
 
   </div>
   <div class="article-inner">
-    
-    
+
+
       <header class="article-header">
-        
-  
+
+
     <h1 itemprop="name">
       <a class="article-title" href="/2015/05/03/可视化编程之Storyboard/">可视化编程之Storyboard</a>
     </h1>
-  
+
 
       </header>
-    
+
     <div class="article-entry" itemprop="articleBody">
-      
+
         <h2 id="1-StoryBoard到底是什么？"><a href="#1-StoryBoard到底是什么？" class="headerlink" title="1 StoryBoard到底是什么？"></a>1 StoryBoard到底是什么？</h2><p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eoklt43hgsj21kw0yc787.jpg" alt=""></p>
-        
+
           <p class="article-more-link">
             <a href="/2015/05/03/可视化编程之Storyboard/#more">Read More</a>
           </p>
-        
-      
+
+
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2015/05/03/可视化编程之Storyboard/" data-id="cir25tgf7004ntkfy2jyrd9xf" class="article-share-link">Partager</a>
-      
-      
+
+
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/可视化编程/">可视化编程</a></li></ul>
 
     </footer>
   </div>
-  
+
 </article>
 
 
-  
+
 
 
   <nav id="page-nav">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
-        
+
           <aside id="sidebar">
-  
-    
+
+
   <div class="widget-wrap">
     <h3 class="widget-title">Catégories</h3>
     <div class="widget">
@@ -557,8 +557,8 @@
   </div>
 
 
-  
-    
+
+
   <div class="widget-wrap">
     <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
@@ -567,8 +567,8 @@
   </div>
 
 
-  
-    
+
+
   <div class="widget-wrap">
     <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
@@ -576,8 +576,8 @@
     </div>
   </div>
 
-  
-    
+
+
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
@@ -586,43 +586,43 @@
   </div>
 
 
-  
-    
+
+
   <div class="widget-wrap">
     <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
-        
+
           <li>
             <a href="/2016/07/25/hello-world/">Hello World</a>
           </li>
-        
+
           <li>
             <a href="/2015/11/20/使用WKWebView替换UIWebView/">使用WKWebView替换UIWebView</a>
           </li>
-        
+
           <li>
             <a href="/2015/06/15/UITableViewCell的自定义以及重用/">UITableViewCell的自定义以及重用</a>
           </li>
-        
+
           <li>
             <a href="/2015/06/13/UITableView的编辑和移动/">UITableView的编辑和移动</a>
           </li>
-        
+
           <li>
             <a href="/2015/06/11/UITableView/">UITableView</a>
           </li>
-        
+
       </ul>
     </div>
   </div>
 
-  
+
 </aside>
         
       </div>
       <footer id="footer">
-  
+
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
@@ -632,13 +632,13 @@
 </footer>
     </div>
     <nav id="mobile-nav">
-  
+
     <a href="/" class="mobile-nav-link">Home</a>
-  
+
     <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+
 </nav>
-    
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 

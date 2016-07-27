@@ -246,128 +246,6 @@
             
               
                 
-                <a class="post-title-link" href="/2014/09/30/UISearchBar的使用方法详细/" itemprop="url">
-                  UISearchBar的使用方法详细
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-09-30T18:18:20+08:00" content="2014-09-30">
-              2014-09-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <pre><code> // UISearchBar的常用方法 搜索框
-UISearchBar *oneSearchBar = [[UISearchBar alloc] init];
-oneSearchBar.frame = CGRectMake(0, 0, 320, 70); // 设置位置和大小
-oneSearchBar.keyboardType = UIKeyboardTypeEmailAddress; // 设置弹出键盘的类型
-oneSearchBar.barStyle = UIBarStyleBlackTranslucent; // 设置UISearchBar的样式
-oneSearchBar.tintColor = [UIColor redColor]; // 设置UISearchBar的颜色 使用clearColor就是去掉背景
-oneSearchBar.placeholder = @&quot;请输入：&quot;; // 设置提示文字
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/30/UISearchBar的使用方法详细/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2014/09/29/UITextView的使用方法详细/" itemprop="url">
                   UITextView的使用方法详细
                 </a>
@@ -1408,6 +1286,132 @@ oneSwitch.thumbTintColor = [UIColor blueColor]; // 设置开关上左右滑动�
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/09/21/UISlider的使用方法详细/" itemprop="url">
+                  UISlider的使用方法详细
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-09-21T17:57:05+08:00" content="2014-09-21">
+              2014-09-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <pre><code>// UISlider的常用方法
+UISlider *oneSlider = [[UISlider alloc] init];
+
+// 最常用
+oneSlider.frame = CGRectMake(10, 20, 300, 30); // 设置位置和大小 注意：UISlider的高度可以随便设置，因为是不会变的
+oneSlider.value = 30; // 初始值
+oneSlider.minimumValue = 0; // 最小值
+oneSlider.maximumValue = 100; // 最大值
+oneSlider.backgroundColor = [UIColor blueColor]; // 设置背景颜色
+oneSlider.alpha = 0.9; // 设置透明度
+oneSlider.tag = 1001; // 设置标签，常用在委托中
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/21/UISlider的使用方法详细/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1453,7 +1457,7 @@ oneSwitch.thumbTintColor = [UIColor blueColor]; // 设置开关上左右滑动�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -1,0 +1,734 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo博客(搭建、使用)," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="新建博客文件Hexo使用markdown语法的纯文本编辑，文件后缀名.m ,文件存放在：我们的站点目录下/source/_post 文件夹下
+文件生成方式：
+hexo new layout 文件名    
+
+例：hexo new post HelloWorld  如果文件名中有空格必须给文件名加引号 hexo new post &amp;quot;Hello World&amp;quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何写一篇hexo博客">
+<meta property="og:url" content="http://yoursite.com/2015/03/25/如何写一篇hexo博客/index.html">
+<meta property="og:site_name" content="杨明">
+<meta property="og:description" content="新建博客文件Hexo使用markdown语法的纯文本编辑，文件后缀名.m ,文件存放在：我们的站点目录下/source/_post 文件夹下
+文件生成方式：
+hexo new layout 文件名    
+
+例：hexo new post HelloWorld  如果文件名中有空格必须给文件名加引号 hexo new post &amp;quot;Hello World&amp;quot;">
+<meta property="og:image" content="http://img-storage.qiniudn.com/15-11-8/65444556.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6aee7dbbgw1effew5aftij20d80bz3yw.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6aee7dbbgw1effezhonxlj20e009c3yu.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6aee7dbbgw1effg1lsa97j20lt0a8dgs.jpg">
+<meta property="og:updated_time" content="2015-12-15T07:50:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何写一篇hexo博客">
+<meta name="twitter:description" content="新建博客文件Hexo使用markdown语法的纯文本编辑，文件后缀名.m ,文件存放在：我们的站点目录下/source/_post 文件夹下
+文件生成方式：
+hexo new layout 文件名    
+
+例：hexo new post HelloWorld  如果文件名中有空格必须给文件名加引号 hexo new post &amp;quot;Hello World&amp;quot;">
+<meta name="twitter:image" content="http://img-storage.qiniudn.com/15-11-8/65444556.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/03/25/如何写一篇hexo博客/"/>
+
+  <title> 如何写一篇hexo博客 | 杨明 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">杨明</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">面朝大海,春暖花开</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何写一篇hexo博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-25T13:12:55+08:00" content="2015-03-25">
+              2015-03-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/兴趣篇/" itemprop="url" rel="index">
+                    <span itemprop="name">兴趣篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="新建博客文件"><a href="#新建博客文件" class="headerlink" title="新建博客文件"></a>新建博客文件</h3><p>Hexo使用markdown语法的纯文本编辑，文件后缀名.m ,文件存放在：我们的站点目录下/source/_post 文件夹下</p>
+<p>文件生成方式：</p>
+<pre><code>hexo new layout 文件名    
+
+例：hexo new post HelloWorld  如果文件名中有空格必须给文件名加引号 hexo new post &quot;Hello World&quot;
+</code></pre><a id="more"></a>
+<p>layout是可选的，默认为post,layout有哪些呢，我们可以到我们的站点目录下的scaffolds文件夹下查看也可以编辑现有的Layout文件</p>
+<p>post：</p>
+<pre><code>title:如何写一篇hexo博客
+date:1446555098000
+tags:
+-
+</code></pre><p>有的时候我们想给自己写的blog分类就可以对post文件进行修改，修改后我们以后再写文章就不用再次添加了</p>
+<pre><code>title:如何写一篇hexo博客
+date:1446555098000
+categories:
+-
+tags:
+-    
+：
+</code></pre><p>博客编辑完成之后在中端执行部署命令：</p>
+<pre><code>hexo d -g    
+</code></pre><p>接下来我们可以使用markdown编辑器来编辑我们的博客文章了，<a href="http://pan.baidu.com/s/1ntkwiDj" target="_blank" rel="external">markdown编辑器分享</a></p>
+<p><img src="http://img-storage.qiniudn.com/15-11-8/65444556.jpg" alt=""></p>
+<h3 id="markdown语法教程："><a href="#markdown语法教程：" class="headerlink" title="markdown语法教程："></a>markdown语法教程：</h3><h3 id="标题："><a href="#标题：" class="headerlink" title="标题："></a>标题：</h3><pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+</code></pre><p><img src="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg" alt=""></p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p><img src="http://ww4.sinaimg.cn/large/6aee7dbbgw1effew5aftij20d80bz3yw.jpg" alt=""></p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>在文本前面添加<code>&gt;</code></p>
+<p><img src="http://ww3.sinaimg.cn/large/6aee7dbbgw1effezhonxlj20e009c3yu.jpg" alt=""></p>
+<h3 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h3><p>图片：<code>![](图片地址)</code> 图片地址可以使本地图片路径，或者图片网址</p>
+<p>网址：<code>[]()</code></p>
+<p><img src="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg" alt=""></p>
+<h3 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h3><p>粗体：用两个<code>*</code>包含一段文本就是粗体。 例：<code>**粗体**</code><br>斜体：用一个<code>*</code>包含一段文本就是斜体</p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><pre><code>| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+</code></pre><h3 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h3><p>只需要用两个 ` 把中间的代码包含起来</p>
+<p><img src="http://ww3.sinaimg.cn/large/6aee7dbbgw1effg1lsa97j20lt0a8dgs.jpg" alt=""></p>
+<p>也可以使用<code>tab</code>键缩进4个空格</p>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>分割线的语法只需要加三个<code>-</code>号或<code>*</code></p>
+<h3 id="相关推荐"><a href="#相关推荐" class="headerlink" title="相关推荐"></a>相关推荐</h3><p>图片我们可以使用图床获取图片的URL</p>
+<p><a href="http://yotuku.cn" target="_blank" rel="external">七牛云</a></p>
+<p><a href="http://m.yea.im" target="_blank" rel="external">外链图床</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo博客-搭建、使用/" rel="tag">#Hexo博客(搭建、使用)</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/12/UIScrollView和UIPageControl配合使用完成引用介绍页面/" rel="next" title="UIScrollView和UIPageControl配合使用完成引用介绍页面">
+                <i class="fa fa-chevron-left"></i> UIScrollView和UIPageControl配合使用完成引用介绍页面
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/03/linux基础之错误信息/" rel="prev" title="linux基础之错误信息">
+                linux基础之错误信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="杨明" />
+          <p class="site-author-name" itemprop="name">杨明</p>
+          <p class="site-description motion-element" itemprop="description">当你的才华还撑不起你的野心时，那你就应该静下心来学习。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="www.baidu.com" target="_blank" title="百度">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  百度
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://developer.apple.com" target="_blank" title="Developer">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Developer
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.oschina.net" target="_blank" title="开源中国">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  开源中国
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.code4app.com/forum-2-1.html" target="_blank" title="Code4App">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Code4App
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cocoachina.com" target="_blank" title="Cocoachina">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Cocoachina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://liushuang.win" target="_blank" title="刘爽">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  刘爽
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://leopardpan.github.io" target="_blank" title="潘伯信">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  潘伯信
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建博客文件"><span class="nav-number">1.</span> <span class="nav-text">新建博客文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown语法教程："><span class="nav-number">2.</span> <span class="nav-text">markdown语法教程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标题："><span class="nav-number">3.</span> <span class="nav-text">标题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">4.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片与链接"><span class="nav-number">6.</span> <span class="nav-text">图片与链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#粗体与斜体"><span class="nav-number">7.</span> <span class="nav-text">粗体与斜体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">8.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码框"><span class="nav-number">9.</span> <span class="nav-text">代码框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分割线"><span class="nav-number">10.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关推荐"><span class="nav-number">11.</span> <span class="nav-text">相关推荐</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨明</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

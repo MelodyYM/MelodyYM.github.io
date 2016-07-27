@@ -1,0 +1,806 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,UIPikcerView," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="//
+
+#import &amp;quot;RootViewController.h&amp;quot;
+
+@interface RootViewController ()
+
+@end
+
+@implementation RootViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIPikcerView的联动选择">
+<meta property="og:url" content="http://yoursite.com/2014/10/08/UIPikcerView的联动选择/index.html">
+<meta property="og:site_name" content="杨明">
+<meta property="og:description" content="//
+
+#import &amp;quot;RootViewController.h&amp;quot;
+
+@interface RootViewController ()
+
+@end
+
+@implementation RootViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOr">
+<meta property="og:updated_time" content="2015-12-15T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIPikcerView的联动选择">
+<meta name="twitter:description" content="//
+
+#import &amp;quot;RootViewController.h&amp;quot;
+
+@interface RootViewController ()
+
+@end
+
+@implementation RootViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOr">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/10/08/UIPikcerView的联动选择/"/>
+
+  <title> UIPikcerView的联动选择 | 杨明 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">杨明</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">面朝大海,春暖花开</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UIPikcerView的联动选择
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-10-08T18:28:23+08:00" content="2014-10-08">
+              2014-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code> //
+
+#import &quot;RootViewController.h&quot;
+
+@interface RootViewController ()
+
+@end
+
+@implementation RootViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+if (self) {
+    // Custom initialization
+}
+return self;
+}
+</code></pre><a id="more"></a>
+<pre><code>- (void)viewDidLoad
+{
+[super viewDidLoad];
+// Do any additional setup after loading the view.
+
+// 初始化身份数据
+NSMutableArray *tempArray1 = [NSMutableArray arrayWithObjects:@&quot;北京&quot;, @&quot;河北&quot;, @&quot;天津&quot;, nil];
+self.citysArray = tempArray1;
+
+// 初始化城市数据 @&quot;朝阳区&quot;, @&quot;海淀区&quot;, @&quot;西城区&quot;, @&quot;东城区&quot;, &quot;昌平区&quot;, nil
+NSMutableArray *tempArray2 = [NSMutableArray arrayWithObjects:@&quot;朝阳区&quot;, @&quot;海淀区&quot;, @&quot;西城区&quot;, @&quot;东城区&quot;, @&quot;昌平区&quot;, nil];
+self.districtesArray = tempArray2;
+
+// 初始化UIPickerView
+UIPickerView *onePickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 216, 320, 216)];
+// 设置委托对象
+onePickerView.delegate = self;
+onePickerView.showsSelectionIndicator = YES; // 设置选中的一行高亮显示
+// 设置数据源对象
+onePickerView.dataSource = self;
+self.pickerView = onePickerView;
+[onePickerView release], onePickerView = nil;
+[self.view addSubview:_pickerView];
+
+}
+
+- (void)didReceiveMemoryWarning
+{
+[super didReceiveMemoryWarning];
+// Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 重写---滚动滚轮调用的方法
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+if (component == 0) {
+    switch (row) {
+        case 0:
+            self.districtesArray = [NSMutableArray arrayWithObjects:@&quot;朝阳区&quot;, @&quot;海淀区&quot;, @&quot;西城区&quot;, @&quot;东城区&quot;, @&quot;昌平区&quot;, nil];
+            break;
+        case 1:
+            self.districtesArray = [NSMutableArray arrayWithObjects:@&quot;保定&quot;, @&quot;沧州&quot;, @&quot;邢台&quot;, @&quot;唐山&quot;, nil];
+            break;
+        case 2:
+            self.districtesArray = [NSMutableArray arrayWithObjects:@&quot;红桥区&quot;, @&quot;北辰区&quot;, @&quot;西青区&quot;, @&quot;武清区&quot;, @&quot;呵呵&quot;, nil];
+            break;
+        default:
+            break;
+    }
+    // 修改完数据之后重新加载数据
+    [pickerView reloadComponent:1];
+    // 设置默认选中的为第二个滚轮的第一个选项
+    [pickerView selectRow:0 inComponent:1 animated:YES];
+}
+</code></pre><p>}</p>
+<pre><code>#pragma mark - 重写---协议中的方法
+#pragma mark 设置总共有几个滚轮 返回值是几既有机房
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+return 2;
+</code></pre><p>}</p>
+<pre><code>#pragma mark 这种相同的数据源返回相同的数据源
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+if (component == 0) { // 判断是左面第一个滚轮
+    return self.citysArray.count;
+} else {
+    return self.districtesArray.count;
+}
+}
+
+
+#pragma mark - 重写---获取数据源显示在UIPickerView上
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+if (component == 0) {
+    return [self.citysArray objectAtIndex:row];
+} else {
+    return [self.districtesArray objectAtIndex:row];
+}
+}
+
+
+#pragma mark - 重写---dealloc方法
+- (void)dealloc {
+[_pickerView release], _pickerView = nil;
+
+
+[super dealloc];
+}
+
+
+@end
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/UIPikcerView/" rel="tag">#UIPikcerView</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/07/关于屏幕的方向/" rel="next" title="关于屏幕的方向">
+                <i class="fa fa-chevron-left"></i> 关于屏幕的方向
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/10/09/UITableView的详细使用/" rel="prev" title="UITableView的详细使用">
+                UITableView的详细使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="杨明" />
+          <p class="site-author-name" itemprop="name">杨明</p>
+          <p class="site-description motion-element" itemprop="description">当你的才华还撑不起你的野心时，那你就应该静下心来学习。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="www.baidu.com" target="_blank" title="百度">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  百度
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://developer.apple.com" target="_blank" title="Developer">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Developer
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.oschina.net" target="_blank" title="开源中国">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  开源中国
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.code4app.com/forum-2-1.html" target="_blank" title="Code4App">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Code4App
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cocoachina.com" target="_blank" title="Cocoachina">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Cocoachina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://liushuang.win" target="_blank" title="刘爽">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  刘爽
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://leopardpan.github.io" target="_blank" title="潘伯信">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  潘伯信
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨明</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

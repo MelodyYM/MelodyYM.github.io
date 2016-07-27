@@ -1,0 +1,708 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="工具,CocoaPosd使用详解," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="CocoaPosd是什么？当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。
+大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。
+还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。
+以上问题超级的烦人。。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CocoaPosd详解">
+<meta property="og:url" content="http://yoursite.com/2015/05/11/CocoaPosd详解/index.html">
+<meta property="og:site_name" content="杨明">
+<meta property="og:description" content="CocoaPosd是什么？当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。
+大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。
+还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。
+以上问题超级的烦人。。。">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1es45z04v3dj20x40li0v3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1es465iqjdsj20ba02qglt.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1es4677n31fj20gw02mjrt.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1es46bo14gij20xq0d641m.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1es46tz82zfj20ck036aac.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1es47gd8m90j20z8086n1h.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1es47gtuyr8j20bg0o6wgr.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1es47jgxnhvj20ko05i3zm.jpg">
+<meta property="og:updated_time" content="2015-12-15T07:50:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CocoaPosd详解">
+<meta name="twitter:description" content="CocoaPosd是什么？当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。
+大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。
+还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。
+以上问题超级的烦人。。。">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1es45z04v3dj20x40li0v3.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/05/11/CocoaPosd详解/"/>
+
+  <title> CocoaPosd详解 | 杨明 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">杨明</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">面朝大海,春暖花开</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CocoaPosd详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-11T21:16:01+08:00" content="2015-05-11">
+              2015-05-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发相关工具/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发相关工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww4.sinaimg.cn/large/9c2363adgw1es45z04v3dj20x40li0v3.jpg" alt=""></p>
+<h3 id="CocoaPosd是什么？"><a href="#CocoaPosd是什么？" class="headerlink" title="CocoaPosd是什么？"></a>CocoaPosd是什么？</h3><p>当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。</p>
+<p>大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。</p>
+<p>还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。</p>
+<p>以上问题超级的烦人。。。<br><a id="more"></a></p>
+<p>CocoaPods就是类库管理工具，刚刚提到所有麻烦的操作，CocoaPods都能解决。</p>
+<p>作为一名程序员，掌握CocoaPods已经和你会使用UIButton一样重要了!</p>
+<h3 id="安装CocoaPosd"><a href="#安装CocoaPosd" class="headerlink" title="安装CocoaPosd"></a>安装CocoaPosd</h3><p>安装CocoaPods需要本地Ruby环境，默认情况下，Mac自带Ruby环境，可以通过在<code>终端</code>输入命令<code>ruby -v</code>查看Ruby版本，接下来进行安装，使用如下命令：</p>
+<p><code>$ sudo gem install CocoaPods</code></p>
+<p>输入以上命令，可能会一直没有反应，或者出现ERROR。注意了，我们在天朝，是有一堵墙的，挡住了，所以你安装失败。不过没关系，我们可以使用另外一个地址来访问CocoaPods。</p>
+<p>既然官网地址被墙了，我们就使用淘宝的，淘宝的Ruby镜像可以帮助我们访问CocoaPods，分别在终端输入如下命令，将Ruby镜像替换为淘宝的镜像地址:</p>
+<p><code>$ gem sources —remove https://rubygems.org/</code><br><code>$ gem sources -a https://ruby.taobao.org/</code></p>
+<p>完成之后，我们可以使用如下命令来查看Ruby镜像是否已经指向了淘宝：</p>
+<p><code>$ gem sources -l</code></p>
+<p>如果看到如下信息，表示已经成功！！！<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1es465iqjdsj20ba02qglt.jpg" alt=""></p>
+<p>下面，重新执行安装命令，等待安装结束就可以了<br><code>$ sudo gem install CocoaPods</code></p>
+<p>等待执行完毕，看到如下提示，恭喜你，安装完成。</p>
+<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1es4677n31fj20gw02mjrt.jpg" alt=""></p>
+<p>如果遇到其它的安装问题，请自行Google解决吧。</p>
+<h3 id="使用CocoaPods"><a href="#使用CocoaPods" class="headerlink" title="使用CocoaPods"></a>使用CocoaPods</h3><p>安装已经完成了，下面就来教大家如何使用。</p>
+<p>做一个项目，项目中需要使用SDWebImage，看看如何使用CocoaPods进行安装</p>
+<p>首先使用如下命令，查看CocoaPods是否支持SDWebImage类库</p>
+<p><code>$ pod search SDWebImage</code></p>
+<p>可以看到下面这些搜索结果，表示SDWebImage是可以的，<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1es46bo14gij20xq0d641m.jpg" alt=""></p>
+<p>注意圈住的那一行，一会需要使用。这行信息是告诉CocoaPods去下载哪一个第三方类库和它的哪一个版本，是一条配置信息。</p>
+<h3 id="下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库："><a href="#下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库：" class="headerlink" title="下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库："></a>下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库：</h3><p><strong>1&gt;.</strong>创建项目 CocoaPods_Test，保存到桌面</p>
+<p><strong>2&gt;.</strong>在终端输入 <code>cd空格</code>，拖入项目文件夹，回车，进入项目所在的根目录</p>
+<p><strong>3&gt;.</strong>通过命令行创建<code>Podfile</code>文件，该文件的作用是配置第三方类库的信息，就是告诉CocoaPods去管理哪些类库</p>
+<p><code>$ vim Podfile</code></p>
+<p>vim打开文件后，按<code>i</code>进入编辑模式，输入如下文字：<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1es46tz82zfj20ck036aac.jpg" alt=""></p>
+<p>里面的<code>pod &#39;SDWebImage&#39;, &#39;~&gt; 3.7.1&#39;</code>就是我们在上面圈住的那一行。</p>
+<p>输入完成后按<code>ESC</code>退出编辑模式，接着输入<code>:wq</code>，并按回车键进行保存并退出。</p>
+<p><strong>上面的操作完成之后，我们可以在项目根目录发现一个没有后缀的Podfile文件，这就是刚刚创建的文件，里面保存了需要使用的第三方类库的信息。(注意：Podfile文件必须和.xcodeproj文件在同一目录下)</strong></p>
+<p><strong>4&gt;.</strong>接下来，我们就可以使用命令来安装第三方类库了，(确保终端路径在项目根目录)运行如下命令：</p>
+<p><code>$ pod install</code></p>
+<p>当我们看到这样的提示，就表示你操作成功：<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1es47gd8m90j20z8086n1h.jpg" alt=""></p>
+<p><strong>注意最后一句话：”Please close any current Xcode sessions and use ‘CocoaPods_Test.xcworkspace’for this project from now on”。这就是告诉我们，从现在开始需要使用这个文件来打开项目，而不在是之前的.xcodeproj</strong></p>
+<p><strong>5&gt;.</strong>双击项目中的<code>CocoaPods_Test.xcworkspace</code>文件来打开项目，你会看到如下目录结构：<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1es47gtuyr8j20bg0o6wgr.jpg" alt=""></p>
+<p>我们会发现多了一个Pods的依赖工程，打开Pods文件夹后，发现SDWebImage已经在这里面了。</p>
+<p><strong>6&gt;.</strong>现在，我们就可以在想要使用SDWebImage的文件中，引入需要的文件，然后就可以正常使用了。</p>
+<p><strong>7&gt;.</strong>到现在为止，你已经学会了如何使用CocoaPods来添加第三方类库。如果我们需要使用多个第三方类库，只需要修改Podfile文件就可以了，如下：<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1es47jgxnhvj20ko05i3zm.jpg" alt=""></p>
+<blockquote>
+<p>NOTE:</p>
+<p>怎么样，过程很简单吧。只需要: 1.查询 2.修改Podfile文件 3.安装 即可完成!</p>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>当我们想要重新安装CocoaPods的时候，需要卸载这个东西，很简单，只需要执行以下命令即可：</p>
+<p><code>$ sudo gem uninstall CocoaPods</code></p>
+<p>如果安装了多个版本，选择All，即可全部卸载！</p>
+<p>第三方版本号的各种写法与含义：</p>
+<p>```pod ‘AFNetworking’      //不显式指定依赖库版本，表示每次都获取最新版本<br>pod ‘AFNetworking’,  ‘2.0’     //只使用2.0版本<br>pod ‘AFNetworking’, ‘&gt;2.0’     //使用高于2.0的版本<br>pod ‘AFNetworking’, ‘&gt;=2.0’     //使用大于或等于2.0的版本<br>pod ‘AFNetworking’, ‘<2.0' 使用小于2.0的版本="" pod="" 'afnetworking',="" '<="2.0'" 使用小于或等于2.0的版本="" '~="">0.1.2’     //使用大于等于0.1.2但小于0.2的版本，相当于&gt;=0.1.2并且&lt;0.2.0<br>pod ‘AFNetworking’, ‘~&gt;0.1’     //使用大于等于0.1但小于1.0的版本<br>pod ‘AFNetworking’, ‘~&gt;0’     //高于0的版本，写这个限制和什么都不写是一个效果，都表示使用最新版本</2.0'></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工具/" rel="tag">#工具</a>
+          
+            <a href="/tags/CocoaPosd使用详解/" rel="tag">#CocoaPosd使用详解</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/03/可视化编程之Storyboard/" rel="next" title="可视化编程之Storyboard">
+                <i class="fa fa-chevron-left"></i> 可视化编程之Storyboard
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/18/iOS添加测试设备与调试/" rel="prev" title="iOS添加测试设备与调试">
+                iOS添加测试设备与调试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="杨明" />
+          <p class="site-author-name" itemprop="name">杨明</p>
+          <p class="site-description motion-element" itemprop="description">当你的才华还撑不起你的野心时，那你就应该静下心来学习。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="www.baidu.com" title="百度" target="_blank">百度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.apple.com" title="Developer" target="_blank">Developer</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.oschina.net" title="开源中国" target="_blank">开源中国</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.code4app.com/forum-2-1.html" title="Code4App" target="_blank">Code4App</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cocoachina.com" title="Cocoachina" target="_blank">Cocoachina</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.html5cn.org" title="HTML5中国" target="_blank">HTML5中国</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://liushuang.win" title="刘爽" target="_blank">刘爽</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://leopardpan.github.io" title="潘伯信" target="_blank">潘伯信</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPosd是什么？"><span class="nav-number">1.</span> <span class="nav-text">CocoaPosd是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装CocoaPosd"><span class="nav-number">2.</span> <span class="nav-text">安装CocoaPosd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用CocoaPods"><span class="nav-number">3.</span> <span class="nav-text">使用CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库："><span class="nav-number">4.</span> <span class="nav-text">下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨明</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

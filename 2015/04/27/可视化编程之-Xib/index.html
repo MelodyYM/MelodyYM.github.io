@@ -1,0 +1,687 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,可视化编程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可视化编程之-Xib">
+<meta property="og:url" content="http://yoursite.com/2015/04/27/可视化编程之-Xib/index.html">
+<meta property="og:site_name" content="杨明">
+<meta property="og:description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7p5ta6mfj21kw148ae6.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7pppa1nhj20be0dwmy3.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7re14u6wj214k0nwdi0.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1eo7rh05g5gj214k0nwgos.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1eo7rk9hhm0j21kw14k0y3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7rn9la4gj20y40ecwgm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7pwi0fvzj21kw0yeags.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7s4ekfjyj21a80sin2n.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7qn53z9kj20fg0860th.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7qx1mei1j20fg096dgq.jpg">
+<meta property="og:updated_time" content="2015-12-15T07:50:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="可视化编程之-Xib">
+<meta name="twitter:description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7p5ta6mfj21kw148ae6.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/04/27/可视化编程之-Xib/"/>
+
+  <title> 可视化编程之-Xib | 杨明 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">杨明</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">面朝大海,春暖花开</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                可视化编程之-Xib
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-27T21:13:26+08:00" content="2015-04-27">
+              2015-04-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-1-什么是Xib？"><a href="#1-1-什么是Xib？" class="headerlink" title="1.1 什么是Xib？"></a>1.1 什么是Xib？</h2><p>xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7p5ta6mfj21kw148ae6.jpg" alt=""></p>
+<a id="more"></a>
+<p>当我们使用MVC模式去编写项目的时候，创建了一个UIViewController，它就是MVC中的C，还需要创建一个View，表示MVC中的V。之前我们的做法都是继承UIView类，创建一个自定义View，然后把所有有关视图的代码都写到自定义View中，虽然把Controller类进行了瘦身，但是View中的代码依然看起来让人头疼，每添加一个小控件都需要好几行的代码，一个简单的登录页面，就需要一大段的代码，很烦人。不过有了xib，我们做一个登录页面出来，不仅不需要写代码了，还可以通过拖线的方式把属性、方法都生成，非常的方便。</p>
+<h2 id="1-2-nib又是什么东西？"><a href="#1-2-nib又是什么东西？" class="headerlink" title="1.2 nib又是什么东西？"></a>1.2 nib又是什么东西？</h2><p>项目进行编译之后，xib文件会保存到我们的Bundle中，被编译成了nib文件，</p>
+<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7pppa1nhj20be0dwmy3.jpg" alt=""></p>
+<p>简单来说，<code>xib</code>就是编译之前的格式，<code>nib</code>就是编译之后的格式。至于你到底叫它xib还是nib，都随你喜欢啦</p>
+<h2 id="1-3-如何使用"><a href="#1-3-如何使用" class="headerlink" title="1.3. 如何使用"></a>1.3. 如何使用</h2><h3 id="1-3-1-xib文件的创建"><a href="#1-3-1-xib文件的创建" class="headerlink" title="1.3.1 xib文件的创建"></a>1.3.1 xib文件的创建</h3><p>当我们创建视图控制器的时候，我们把这个选项选中，<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7re14u6wj214k0nwdi0.jpg" alt=""></p>
+<p>这样我们就可以创建一个自带xib文件的视图控制器了。</p>
+<p>如果说创建视图控制器的时候忘记勾选了，也不要着急，我们可以单独创建一个xib文件，<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1eo7rh05g5gj214k0nwgos.jpg" alt=""></p>
+<p>单独创建xib文件的时候，名字最好和它所对应的控制器相同。</p>
+<p>注意，虽然你单独创建出来了xib文件，但是需要注意的是，我们还要将xib和控制器类进行关联，<br>在Class中输入xib对应的控制器的类名，<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1eo7rk9hhm0j21kw14k0y3.jpg" alt=""></p>
+<p>除了这个，还有：在File’s Owner上右击，会出现黑色的HUD，找到view，右侧有个小圈圈，鼠标放到上面会变成小加号，拖动到xib上。<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7rn9la4gj20y40ecwgm.jpg" alt=""></p>
+<blockquote>
+<p>   NOTE:</p>
+<p>   自己创建的Xib与控制器关联需要两步：</p>
+<p>   1.将xib与自己的控制器类究竟强行管理关联</p>
+<p>   2.xi的view与控制器的view进行关联</p>
+</blockquote>
+<h3 id="1-3-2-控件的添加"><a href="#1-3-2-控件的添加" class="headerlink" title="1.3.2 控件的添加"></a>1.3.2 控件的添加</h3><p> 使用方式就是大家经常所说的托控件，只需要将右下角的控件拖到我们页面中：<br> <img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7pwi0fvzj21kw0yeags.jpg" alt=""></p>
+<p> 我们把控件都摆放好位置之后，运行会发现并不是居中的，这是因为我们Size Classes的关系，大家暂时先不用管，你要做的就是把所有的控件往左边靠，然后摆个大概的位置就好了。</p>
+<h3 id="1-3-3-控件与属性或者事件的绑定"><a href="#1-3-3-控件与属性或者事件的绑定" class="headerlink" title="1.3.3 控件与属性或者事件的绑定"></a>1.3.3 控件与属性或者事件的绑定</h3><p>当我们摆放好控件的位置之后，就可以运行看效果了，这个时候效果都出现没有问题，但是我们会发现点击的时候没有作用，那是因为我们还没有给控件绑定事件，那么，该如何做呢？</p>
+<p>打开<code>Assistant Editor</code>编辑模式，也就是同时可以显示两个类的文件的模式，左侧显示我们的xib文件，右侧显示xib文件对应的控制器。</p>
+<p>正式开始拖线，选中要生成属性的控件，按住<code>Control</code>键，拖动到右侧，就会出现如下效果：</p>
+<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7s4ekfjyj21a80sin2n.jpg" alt=""></p>
+<p>松开手后，你会看到这样一个框：<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7qn53z9kj20fg0860th.jpg" alt=""></p>
+<p>connection中选择默认的Outlet，意思是生成一个属性。然后在Name中输入属性的名字，其它地方不用修改，选择，Connect按钮。这样我们就将控件与控制器中的一个属性关联起来了。</p>
+<p><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7qx1mei1j20fg096dgq.jpg" alt=""></p>
+<p>拖动按钮的事件几乎相同，选中一个button，然后按住<code>Control</code>键进行拖动，刚刚connection中不再是选择Outlet，而是选择Action，Name的位置填写事件方法的名称，type的位置填写生成方法的参数类型，其它默认，然后点击Connect按钮，进行事件的创建。</p>
+<p>创建好了事件之后，我们去实现事件方法，效果很简单：点击按钮，显示输入的用户名和密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#pragma mark - 按钮事件</div><div class="line">#pragma mark 登录</div><div class="line">- (IBAction)loginButtonAction:(UIButton *)sender</div><div class="line">&#123;</div><div class="line">    NSString *messageStr = [NSString stringWithFormat:@&quot;%@\n%@&quot;, _userNameTextField.text, _passwordTextField.text];</div><div class="line"></div><div class="line">    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@&quot;提示&quot; message:messageStr preferredStyle:UIAlertControllerStyleAlert];</div><div class="line"></div><div class="line">    UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) &#123;</div><div class="line">        NSLog(@&quot;取消按钮&quot;);</div><div class="line">    &#125;];</div><div class="line">    [alertC addAction:cancelAlertAction];</div><div class="line"></div><div class="line">    [self showDetailViewController:alertC sender:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="1-4-可视化编程有什么优势？"><a href="#1-4-可视化编程有什么优势？" class="headerlink" title="1.4 可视化编程有什么优势？"></a>1.4 可视化编程有什么优势？</h2><ul>
+<li>xib让我们创建应用程序的页面更加的快速，节省了更多的时间</li>
+<li>快速的帮助我们创建出来了属性和方法，还是节省了很多的时间</li>
+<li>xib比较简洁，只描述了当前页面的一些内容</li>
+<li>所见即所得，比代码直观</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/可视化编程/" rel="tag">#可视化编程</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/19/Vim-编辑器/" rel="next" title="Vim 编辑器">
+                <i class="fa fa-chevron-left"></i> Vim 编辑器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/03/可视化编程之Storyboard/" rel="prev" title="可视化编程之Storyboard">
+                可视化编程之Storyboard <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="杨明" />
+          <p class="site-author-name" itemprop="name">杨明</p>
+          <p class="site-description motion-element" itemprop="description">当你的才华还撑不起你的野心时，那你就应该静下心来学习。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="www.baidu.com" title="百度" target="_blank">百度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.apple.com" title="Developer" target="_blank">Developer</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.oschina.net" title="开源中国" target="_blank">开源中国</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.code4app.com/forum-2-1.html" title="Code4App" target="_blank">Code4App</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cocoachina.com" title="Cocoachina" target="_blank">Cocoachina</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.html5cn.org" title="HTML5中国" target="_blank">HTML5中国</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://liushuang.win" title="刘爽" target="_blank">刘爽</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://leopardpan.github.io" title="潘伯信" target="_blank">潘伯信</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-什么是Xib？"><span class="nav-number">1.</span> <span class="nav-text">1.1 什么是Xib？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-nib又是什么东西？"><span class="nav-number">2.</span> <span class="nav-text">1.2 nib又是什么东西？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-如何使用"><span class="nav-number">3.</span> <span class="nav-text">1.3. 如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-xib文件的创建"><span class="nav-number">3.1.</span> <span class="nav-text">1.3.1 xib文件的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-控件的添加"><span class="nav-number">3.2.</span> <span class="nav-text">1.3.2 控件的添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-控件与属性或者事件的绑定"><span class="nav-number">3.3.</span> <span class="nav-text">1.3.3 控件与属性或者事件的绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-可视化编程有什么优势？"><span class="nav-number">4.</span> <span class="nav-text">1.4 可视化编程有什么优势？</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨明</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

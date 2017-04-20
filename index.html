@@ -246,6 +246,135 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/07/Mac下Eclipse内置Tomcat端口被占用问题的解决办法/" itemprop="url">
+                  Mac下Eclipse内置Tomcat端口被占用问题的解决办法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-07T18:26:28+08:00" content="2017-01-07">
+              2017-01-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发中的问题笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">开发中的问题笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一直使用Mac做开发，偶然一次启动Mac中eclipse中的tomcat时报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Several ports (8080, 8009) required by Tomcat v7.0 </div><div class="line">Server at localhost are already in use. The server may </div><div class="line">already be running in another process, or a system </div><div class="line">process may be using the port. To start this server you</div><div class="line"> will need to stop the other process or change the port </div><div class="line">number(s).</div></pre></td></tr></table></figure></p>
+<p>在网上查找资料大多是Windows上解决的办法！<br>现在说一说Mac下的解决的办法：</p>
+<ul>
+<li><p>打开终端，确定被占用的端口号，输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -i :8080</div></pre></td></tr></table></figure>
+</li>
+<li><p>该命令会输出下图所示内容：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1442189-f1d6b6866918afc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Snip20161116_2.png"></p>
+<ul>
+<li><p>我的电脑上被占用8080端口的进程ID是698，所以干掉这个进程就OK了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kill -9 698</div></pre></td></tr></table></figure>
+</li>
+<li><p>根据你的进程ID更改最后的一个参数，在终端输入后回车，然后重启Eclipse，tomcat可以正常启动了！</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/28/Markdown 编辑教程/" itemprop="url">
                   Markdown 编辑教程
                 </a>
@@ -1280,130 +1409,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/11/CocoaPosd详解/" itemprop="url">
-                  CocoaPosd详解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-11T21:16:01+08:00" content="2015-05-11">
-              2015-05-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发相关工具/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发相关工具</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww4.sinaimg.cn/large/9c2363adgw1es45z04v3dj20x40li0v3.jpg" alt=""></p>
-<h3 id="CocoaPosd是什么？"><a href="#CocoaPosd是什么？" class="headerlink" title="CocoaPosd是什么？"></a>CocoaPosd是什么？</h3><p>当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。</p>
-<p>大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。</p>
-<p>还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。</p>
-<p>以上问题超级的烦人。。。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/11/CocoaPosd详解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1444,7 +1454,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1452,7 +1462,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1461,7 +1471,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
